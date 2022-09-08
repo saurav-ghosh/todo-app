@@ -43,14 +43,14 @@ const Header = () => {
 
     useEffect(() => {
         if (!deleteTodoIsSuccess && deleteTodoIsError) {
-            toast.error("Error deleting all todos!", {
+            toast.error("Error deleting completed todos!", {
                 position: "top-center",
                 autoClose: 2000,
             });
         }
 
         if (!deleteTodoIsError && deleteTodoIsSuccess) {
-            toast.success("All todos deleted successfully.", {
+            toast.success("Completed todos deleted successfully.", {
                 position: "top-center",
                 autoClose: 2000,
             });

@@ -14,4 +14,4 @@
 ✔ Tailwind <br />
 ✔ Backend: Json-server <br />
 
-Preview this site: <a href="">Todo-app-with-rtk-query</a>
+Preview this site: <a href="https://todo-app-with-rtk-query-by-saurav.netlify.app/">Todo-app-with-rtk-query</a>
