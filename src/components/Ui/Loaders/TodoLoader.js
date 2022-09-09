@@ -9,6 +9,7 @@ const TodoLoader = () => {
             <div className="flex-shrink-0 bg-slate-200 h-4 w-4 rounded-full ml-auto"></div>
             <div className="flex-shrink-0 bg-slate-200 h-4 w-4 rounded-full ml-auto"></div>
             <div className="flex-shrink-0 bg-slate-200 h-4 w-4 rounded-full ml-auto"></div>
+            <div className="flex-shrink-0 bg-slate-200 h-4 w-4 rounded-full ml-auto"></div>
         </div>
     );
 };

@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import noteImage from "../../assets/images/notes.png";
 import plusImage from "../../assets/images/plus.png";
 import { useAddTodoMutation } from "../../features/api/apiSlice";
+import { errorMsg, successMsg } from "../../utils/notifications";
 
 const AddTodoForm = () => {
     const [addTodo, { isLoading, isError, isSuccess }] = useAddTodoMutation();
     const [title, setTitle] = useState("");
 
     useEffect(() => {
+        //error message
         if (!isSuccess && isError) {
-            toast.error("Error adding new todo!", {
-                position: "top-center",
-                autoClose: 2000,
-            });
+            errorMsg("Error adding new todo!");
         }
 
+        //success message
         if (!isError && isSuccess) {
-            toast.success("Todo added successfully.", {
-                position: "top-center",
-                autoClose: 2000,
-            });
+            successMsg("Todo added successfully.");
         }
     }, [isSuccess, isError]);
 

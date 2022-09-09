@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
 import cancelImage from "../../assets/images/cancel.png";
 import {
     useDeleteTodoMutation,
     useUpdateTodoMutation,
 } from "../../features/api/apiSlice";
+import { errorMsg, successMsg } from "../../utils/notifications";
 
 const Todo = ({ todo }) => {
     const { text, completed, color, id } = todo || {};
@@ -16,37 +16,27 @@ const Todo = ({ todo }) => {
     const [updateTitle, setUpdateTitle] = useState(false);
     const [title, setTitle] = useState(text);
 
+    // side effect for delete todo
     useEffect(() => {
         //error & success msg for delete todo
         if (!isSuccess && isError) {
-            toast.error("Error deleting todo!", {
-                position: "top-center",
-                autoClose: 2000,
-            });
+            errorMsg("Error deleting todo!");
         }
 
         if (!isError && isSuccess) {
-            toast.success("Todo deleted successfully.", {
-                position: "top-center",
-                autoClose: 2000,
-            });
+            successMsg("Todo deleted successfully.");
         }
     }, [isSuccess, isError]);
 
+    // side effect for update todo
     useEffect(() => {
         //error & success msg for update todo
         if (!isSuccessUpdating && isErrorUpdating) {
-            toast.error("Error updating todo!", {
-                position: "top-center",
-                autoClose: 2000,
-            });
+            errorMsg("Error updating todo!");
         }
 
         if (!isErrorUpdating && isSuccessUpdating) {
-            toast.success("Todo updated successfully.", {
-                position: "top-center",
-                autoClose: 2000,
-            });
+            successMsg("Todo updated successfully.");
         }
     }, [isSuccessUpdating, isErrorUpdating]);
 
